@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
 import 'package:ssi_mis_flutter/global/modals/admin_role_update_modal.dart';
+// ignore: unused_import
 import 'package:ssi_mis_flutter/global/modals/admin_unarchive_modal.dart';
 import 'package:intl/intl.dart';
 
@@ -149,7 +150,7 @@ class RoleArchived extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               RoleUpdate(),
-                              Unarchive(),
+                              // Unarchive(),
                             ],
                           ),
                         ),

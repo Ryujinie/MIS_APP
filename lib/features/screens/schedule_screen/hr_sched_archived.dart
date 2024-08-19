@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
 import 'package:intl/intl.dart';
 import 'package:ssi_mis_flutter/global/buttons/view_button.dart';
+// ignore: unused_import
 import 'package:ssi_mis_flutter/global/modals/admin_unarchive_modal.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_viewsched_modal.dart';
 
@@ -240,7 +241,7 @@ class HRSchedArchived extends StatelessWidget {
                                   },
                                 ),
                               ),
-                              const Unarchive(),
+                              // const Unarchive(),
                             ],
                           ),
                         ),

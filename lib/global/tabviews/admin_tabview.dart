@@ -3,10 +3,12 @@ import 'package:ssi_mis_flutter/config/constants.dart' as constants;
 
 class AdminTab extends StatelessWidget {
   final List<Widget> tabs;
+  //final TabController? tabController;
 
   const AdminTab({
     super.key,
     required this.tabs,
+    // this.tabController,
   });
 
   @override
@@ -21,6 +23,7 @@ class AdminTab extends StatelessWidget {
       ),
       child: RepaintBoundary(
         child: TabBar(
+          //controller: tabController,
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: const BoxDecoration(
             color: constants.mainTextWhite,

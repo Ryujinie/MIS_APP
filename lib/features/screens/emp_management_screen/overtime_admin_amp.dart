@@ -8,7 +8,6 @@ import 'package:ssi_mis_flutter/global/buttons/status_approved.dart';
 import 'package:ssi_mis_flutter/global/buttons/status_pending_button.dart';
 import 'package:intl/intl.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_view_otrequest_modal.dart';
-import 'package:ssi_mis_flutter/global/modals/admin_confirm_archive_modal.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_createotrequest_modal.dart';
 
 class OvertimeAdminEmp extends StatelessWidget {
@@ -162,7 +161,7 @@ class OvertimeAdminEmp extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ViewOTRequest(),
-                                ConfirmArchive(),
+                                // ConfirmArchive(),
                               ],
                             ))),
                           ]);

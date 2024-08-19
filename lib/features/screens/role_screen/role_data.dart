@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
-import 'package:ssi_mis_flutter/global/modals/admin_confirm_archive_modal.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_role_update_modal.dart';
 import 'package:intl/intl.dart';
 
@@ -149,7 +148,7 @@ class RoleRecord extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               RoleUpdate(),
-                              ConfirmArchive(),
+                              //ConfirmArchive(),
                             ],
                           ),
                         ),

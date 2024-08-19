@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
+// ignore: unused_import
 import 'package:ssi_mis_flutter/global/modals/admin_unarchive_modal.dart';
-import 'package:ssi_mis_flutter/global/modals/admin_department_update_modal.dart';
 import 'package:intl/intl.dart';
 
 class JobPositionArchived extends StatelessWidget {
@@ -148,8 +148,8 @@ class JobPositionArchived extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              DepartmentUpdate(),
-                              Unarchive(),
+                              //DepartmentUpdate(),
+                              // Unarchive(),
                             ],
                           ),
                         ),

@@ -5,8 +5,8 @@ import 'package:ssi_mis_flutter/features/screens/schedule_screen/schedule_data/s
 import 'package:ssi_mis_flutter/features/screens/schedule_screen/schedule_data/schedule_list.dart';
 import 'package:ssi_mis_flutter/global/buttons/elevated_button.dart';
 import 'package:ssi_mis_flutter/global/buttons/view_button.dart';
-import 'package:ssi_mis_flutter/global/modals/admin_confirm_archive_modal.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_createsched_modal.dart';
+// ignore: unused_import
 import 'package:ssi_mis_flutter/global/modals/admin_unarchive_modal.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_viewsched_modal.dart';
 import 'package:ssi_mis_flutter/global/tabviews/admin_tabview.dart';
@@ -319,9 +319,9 @@ class AdminSchedRecords extends StatelessWidget {
                                 //     },
                                 //   ),
                                 // ),
-                                const ConfirmArchive(
-                                  user: 'admin',
-                                ),
+                                // const ConfirmArchive(
+                                //   user: 'admin',
+                                // ),
                               ],
                             ),
                           ),
@@ -550,9 +550,9 @@ class AdminSchedArchived extends StatelessWidget {
                                 //     },
                                 //   ),
                                 // ),
-                                const Unarchive(
-                                  user: 'admin',
-                                ),
+                                // const Unarchive(
+                                //   user: 'admin',
+                                // ),
                               ],
                             ),
                           ),

@@ -3,7 +3,6 @@ import 'package:ssi_mis_flutter/config/constants.dart' as constants;
 import 'package:intl/intl.dart';
 import 'package:ssi_mis_flutter/global/buttons/view_button.dart';
 import 'package:ssi_mis_flutter/global/modals/admin_viewsched_modal.dart';
-import 'package:ssi_mis_flutter/global/modals/admin_confirm_archive_modal.dart';
 
 class HRSchedRecords extends StatelessWidget {
   const HRSchedRecords({super.key});
@@ -240,7 +239,7 @@ class HRSchedRecords extends StatelessWidget {
                                   },
                                 ),
                               ),
-                              const ConfirmArchive(),
+                              //const ConfirmArchive(),
                             ],
                           ),
                         ),

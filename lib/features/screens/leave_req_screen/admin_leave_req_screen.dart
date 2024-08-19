@@ -335,20 +335,6 @@ class AdminLeaveReqScreen extends StatelessWidget {
 }
 
 // ========================== DateTime Picker ==========================
-Future<void> _selectDate(BuildContext context) async {
-  DateTime selectedDate = DateTime.now();
-  final DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: selectedDate,
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-  );
-  if (picked != null && picked != selectedDate) {
-//       setState(() {
-//         selectedDate = picked;
-//       });
-  }
-}
 
 //========================= Data Table ==========================
 class Leave {

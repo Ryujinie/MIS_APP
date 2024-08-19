@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ssi_mis_flutter/features/screens/department_screen/department_data.dart';
 import 'package:ssi_mis_flutter/global/buttons/elevated_button.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
-import 'package:ssi_mis_flutter/features/screens/department_screen/admin_department_archived.dart';
 import 'package:ssi_mis_flutter/global/modals/hr_department_create_modal.dart';
 import 'package:ssi_mis_flutter/global/tabviews/hr_tabview.dart';
 import 'package:ssi_mis_flutter/global/widgets/searchbar.dart';
@@ -70,11 +68,11 @@ class _HRDepartmentScreenState extends State<HRDepartmentScreen> {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: DefaultTabController(
-                length: _tabViews.length,
+              child: const DefaultTabController(
+                length: 2,
                 child: Column(
                   children: [
-                    const HRTab(
+                    HRTab(
                       tabs: [
                         Tab(text: 'All'),
                         Tab(text: 'Archived'),
@@ -82,7 +80,9 @@ class _HRDepartmentScreenState extends State<HRDepartmentScreen> {
                     ),
                     // =============== TabBar View ================
                     Expanded(
-                      child: TabBarView(children: _tabViews),
+                      child: TabBarView(children: [
+                        //ListTab(departmentController: _departmentController)
+                      ]),
                     ),
                   ],
                 ),
@@ -95,7 +95,7 @@ class _HRDepartmentScreenState extends State<HRDepartmentScreen> {
   }
 }
 
-final List<Widget> _tabViews = [
-  const DepartmentRecord(),
-  const DepartmentArchived(),
-];
+// final List<Widget> _tabViews = [
+//   const DepartmentRecord(),
+//   const DepartmentArchived(),
+// ];

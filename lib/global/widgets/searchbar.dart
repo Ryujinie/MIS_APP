@@ -1,12 +1,157 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:ssi_mis_flutter/config/constants.dart' as constants;
+import 'package:ssi_mis_flutter/controllers/department_controllers/admin_dept_controller.dart';
 
-class CustomSearchBar extends StatelessWidget {
+class Searchbar extends StatefulWidget {
+  final String hintText;
+  final DepartmentController? controller;
+
+  const Searchbar({super.key, required this.hintText, this.controller});
+
+  @override
+  State<Searchbar> createState() => _SearchbarState();
+}
+
+class _SearchbarState extends State<Searchbar> {
+  late TextEditingController _textController;
+  bool textChanged = false;
+
+  @override
+  void initState() {
+    _textController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose;
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.fromLTRB(16, 2, 4, 4),
+          height: 40,
+          width: 300,
+          decoration: const BoxDecoration(
+            color: constants.adminFilter,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(12),
+              topLeft: Radius.circular(12),
+            ),
+          ),
+          child: Row(
+            children: [
+              //Textformfield
+              Expanded(
+                child: TextFormField(
+                  controller: _textController,
+                  onChanged: (value) {
+                    _textController.text = value;
+                    setState(() {
+                      textChanged = true;
+                    });
+                  },
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: constants.mainTextBlack,
+                        fontSize: 16,
+                      ),
+                  decoration: InputDecoration(
+                    hintText: widget.hintText,
+                    hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: constants.lightGray,
+                          fontWeight: FontWeight.w300,
+                        ),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 2),
+                    enabledBorder: InputBorder.none,
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    isDense: true,
+                  ),
+                ),
+              ),
+
+              //Clear search
+              textChanged == true
+                  ? InkWell(
+                      onTap: () {
+                        widget.controller!
+                            .fetchDataByArchived(widget.controller!.archiveVal);
+                        widget.controller!.onSearched = false;
+                        _textController.clear();
+                        setState(() {
+                          textChanged = false;
+                        });
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 1),
+                          child: Icon(
+                            Icons.close_rounded,
+                            color: constants.lightGray.withOpacity(0.8),
+                            size: 18,
+                          ),
+                        ),
+                      ),
+                    )
+                  : const SizedBox(),
+            ],
+          ),
+        ),
+        Container(
+          decoration: const BoxDecoration(
+            color: constants.adminFilter,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(12),
+              topRight: Radius.circular(12),
+            ),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {
+                widget.controller!.searchDeptByArchived(_textController.text);
+                widget.controller!.onSearched = true;
+              },
+              hoverColor: constants.adminBtn.withOpacity(0.15),
+              splashColor: constants.adminBtn.withOpacity(0.2),
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ), // Same as container to keep the shape
+              child: const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Icon(
+                    Icons.search,
+                    color: constants.adminBtn,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class CustomSearchBar extends StatefulWidget {
   final String hintText;
 
   const CustomSearchBar({super.key, required this.hintText});
 
+  @override
+  State<CustomSearchBar> createState() => _CustomSearchBarState();
+}
+
+class _CustomSearchBarState extends State<CustomSearchBar> {
+  late String newVal;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,12 +163,17 @@ class CustomSearchBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextFormField(
+        // onChanged: (value) {  //saves every typed letter
+        //   newVal = value;
+        //   print(value);
+        // },
+
         style: Theme.of(context)
             .textTheme
             .bodyMedium
             ?.copyWith(color: constants.mainTextBlack),
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: constants.lightGray,
                 fontWeight: FontWeight.w300,
